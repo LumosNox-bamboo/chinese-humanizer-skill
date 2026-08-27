@@ -1,0 +1,4 @@
+interface:
+  display_name: "Chinese Humanizer"
+  short_description: "让中文表达更自然，减少模板化 AI 腔，同时保留原意与文体"
+  default_prompt: "Use $chinese-humanizer-skill to rewrite this Chinese text in a natural, genre-appropriate voice while preserving facts and meaning."
