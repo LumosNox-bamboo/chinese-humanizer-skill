@@ -25,7 +25,9 @@ Use this skill when the task explicitly calls for naturalizing Chinese prose or 
 4. Apply the rule tiers below: hard-ban patterns first, then frequency controls, then lexical replacements.
 5. Rewrite at paragraph level when needed. Do not merely swap synonyms word-by-word.
 6. Final pass: remove redundant transitions, abstract summaries, slogan endings, and repeated “逐步/持续/进一步/核心”.
-7. Output the revised text. Explain changes only if requested.
+7. Output the revised text.
+8. After any substantive rewrite, append a concise edit report by default. Summarize the main AI-tone patterns found, the main treatment applied, one or two representative changes, what was deliberately preserved, and any item that still needs the author’s judgment. Use `references/edit-report.md`. If the user explicitly asks for only the revised text or no explanation, omit the report.
+9. If the user requests a detailed report, expand it by modification category and include before/after examples. Scanner scores may be used only as heuristic revision-comparison metrics, never as authorship or AI-detection claims.
 
 ## Tier A — Default hard bans
 
@@ -131,6 +133,17 @@ Allow more voice and rhythm. Avoid fake intimacy, motivational endings, and over
 ### Email / internal communication
 Prefer direct verbs, concrete requests, deadlines, ownership, and next steps. Remove ceremonious filler.
 
+## Edit report rules
+
+- Default to a short report after substantive edits; keep it secondary to the revised text.
+- Report patterns and decisions, not every changed word.
+- Mention hard-ban patterns, repeated Tier B words, abstract vocabulary, structural symmetry, or forced paragraph uplift only when they materially occurred.
+- Include 1–2 representative before/after examples when useful.
+- State what was deliberately preserved: facts, numbers, citations, terminology, necessary technical or logical contrasts.
+- Flag only items that genuinely need the author’s decision.
+- Never claim that the revision is “human-written”, “AI-proof”, or likely to pass an AI detector.
+- If the user supplies both original and revised versions, compare them directly. If only the revised result is available, report editing categories without fabricating exact counts.
+
 ## Quality gate
 
 Before finalizing, check:
@@ -142,6 +155,7 @@ Before finalizing, check:
 - Are several sentences built with the same grammatical skeleton?
 - Does the text repeatedly summarize what the reader can already infer?
 - Can any sentence lose 20% of its words without losing information?
+- If substantive edits were made, is the edit report present unless the user asked to omit it?
 
 If yes, revise again.
 
@@ -149,5 +163,6 @@ If yes, revise again.
 
 - Detailed rulebook: `references/rulebook.md`
 - Before/after examples: `references/examples.md`
+- Edit report format: `references/edit-report.md`
 - Research attribution: `references/sources.md`
 - Scanner: `scripts/scan_ai_tone.py`
